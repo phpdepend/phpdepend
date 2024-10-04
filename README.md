@@ -1,9 +1,9 @@
 # PHPDepend
-PHPStan plugin to create a dependency matrix inspired by N-Depend
+PHPStan plugin to create a dependency related visualisations.
 
-## matrix - subcommand
+## Dependency Matrix
 
-Create a dependency matrix html file based on the call
+Create a dependency matrix to see what part of your application is depending on what other parts.
 
 ```bash
 ./bin/phpdepend matrix <path/to/callmap.json>
@@ -26,7 +26,7 @@ composer require phpdepend/phpdepend@dev-main
 ./bin/phpdepend matrix callmap.json
 ```
 
-## graph - subcommand
+## Dependency Graph
 
 Create an overview of your applications method-calls.
 Graph generates a PlantUML file from a CallMap-JSON file.
