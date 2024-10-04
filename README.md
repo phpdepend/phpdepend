@@ -5,6 +5,26 @@ PHPStan plugin to create a dependency matrix inspired by N-Depend
 
 Create a dependency matrix html file based on the call
 
+```bash
+./bin/phpdepend matrix <path/to/callmap.json>
+```
+
+![Example output](dependency-matrix.png)
+
+## Full chain:
+
+```bash
+# Install PHPStan
+composer require --dev phpstan/phpstan 1.11.x-dev
+# Install plugin
+composer require --dev phpdepend/callmap dev-main
+# parse the sources and generate the callmap.json file
+./vendor/bin/phpstan analyse -c vendor/phpdepend/callmap/callmap.neon [path/to/your/sources]
+# Install the callmap cli
+composer require phpdepend/phpdepend@dev-main
+# Convert the callmap.json file into a matrix.html file
+./bin/phpdepend matrix callmap.json
+```
 
 ## graph - subcommand
 
@@ -36,11 +56,11 @@ For the [`phpdepend/callmap`](https://github.com/phpdepend/callmap) plugin that 
 # Install PHPStan
 composer require --dev phpstan/phpstan 1.11.x-dev
 # Install plugin
-composer require --dev stella-maris/callmap dev-main
+composer require --dev phpdepend/callmap dev-main
 # parse the sources and generate the callmap.json file
-./vendor/bin/phpstan analyse -c vendor/stella-maris/callmap/callmap.neon [path/to/your/sources]
+./vendor/bin/phpstan analyse -c vendor/phpdepend/callmap/callmap.neon [path/to/your/sources]
 # Install the callmap cli
-composer require sebastianfeldman/phpdepend@dev-main
+composer require phpdepend/phpdepend@dev-main
 # Convert the callmap.json file into a callmap.plantuml file
 ./bin/phpdepend graph callmap.json
 # Render a PNG file from the callmap.plantuml file
