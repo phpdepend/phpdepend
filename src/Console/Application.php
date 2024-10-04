@@ -2,6 +2,8 @@
 
 namespace PHPDepend\App\Console;
 
+use PHPDepend\App\Service\JsonReader;
+use PHPDepend\App\Writer\WriterFactory;
 use Symfony\Component\Console\Application as SymfonyApplication;
 
 class Application extends SymfonyApplication
@@ -25,6 +27,7 @@ class Application extends SymfonyApplication
             array_slice($symfonyDefaults, 0, 2),
             [
                 new Command\Matrix(),
+                new Command\Graph(new JsonReader(), new WriterFactory())
             ]
         );
     }
