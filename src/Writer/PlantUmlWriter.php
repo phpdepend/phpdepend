@@ -40,11 +40,11 @@ class PlantUmlWriter implements Writer
 		$calls   = [];
 		/** @var Call $item */
 		foreach ($list as $item) {
-			$classes[implode('.', $item->getCalledClass()->getNamespaceSplit())][$item->getCalledMethod()->getName()]   = true;
-			$classes[implode('.', $item->getCallingClass()->getNamespaceSplit())][$item->getCallingMethod()->getName()] = true;
+			$classes[implode('_.', $item->getCalledClass()->getNamespaceSplit())][$item->getCalledMethod()->getName()]   = true;
+			$classes[implode('_.', $item->getCallingClass()->getNamespaceSplit())][$item->getCallingMethod()->getName()] = true;
 		}
 
-		$handle = fopen($this->input->getOption('output'), 'wb+');
+		$handle = fopen($this->input->getOption('target'), 'wb+');
 
 		fwrite($handle, '@startuml' . PHP_EOL);
 		foreach ($classes as $class => $methods) {
@@ -57,11 +57,11 @@ class PlantUmlWriter implements Writer
 
 		foreach ($list as $item) {
 			fwrite($handle,
-				implode('.', $item->getCallingClass()->getNamespaceSplit()) .
+				implode('_.', $item->getCallingClass()->getNamespaceSplit()) .
 				'::' .
 				$item->getCallingMethod()->getName() .
 				' --> ' .
-				implode('.', $item->getCalledClass()->getNamespaceSplit()) .
+				implode('_.', $item->getCalledClass()->getNamespaceSplit()) .
 				'::' .
 				$item->getCalledMethod()->getName() .
 				PHP_EOL
