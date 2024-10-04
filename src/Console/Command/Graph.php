@@ -20,7 +20,7 @@ namespace PHPDepend\App\Console\Command;
 
 use PHPDepend\App\Service\JsonReader;
 use PHPDepend\App\Writer\WriterFactory;
-use PHPDepend\App\Writers;
+use PHPDepend\App\Model\Writers;
 use SplFileInfo;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
