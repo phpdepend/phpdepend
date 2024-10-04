@@ -1,19 +1,47 @@
 {
-    "autoload": {
-        "psr-4": {
-            "PHPDepend\\App\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "PHPDepend\\App\\": "tests/unit/",
-            "PHPDepend\\App\\Integration\\": "tests/integration/"
-        }
-    },
-    "require": {
-        "symfony/console": "^7.1"
-    },
-    "require-dev": {
-        "phpstan/phpstan": "^1.12"
-    }
+	"name": "phpdepend/phpdepend",
+	"type": "library",
+	"description": "PHP static analysis tool",
+	"keywords": [
+		"static analysis"
+	],
+	"homepage": "https://phpdepend.org/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Andreas Heigl",
+			"email": "andreas@heigl.org"
+		},
+		{
+			"name": "Sebastian Feldmann",
+			"email": "sf@sebastian-feldmann.info"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/phpdepend/phpdepend/issues"
+	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/heiglandreas"
+		},
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/sebastianfeldmann"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"PHPDepend\\App\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"PHPDepend\\App\\": "tests/unit/",
+			"PHPDepend\\App\\Integration\\": "tests/integration/"
+		}
+	},
+	"require": {
+		"symfony/console": "^7.1"
+	}
 }
