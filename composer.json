@@ -1,0 +1,19 @@
+{
+    "autoload": {
+        "psr-4": {
+            "PHPDepend\\App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPDepend\\App\\": "tests/unit/",
+            "PHPDepend\\App\\Integration\\": "tests/integration/"
+        }
+    },
+    "require": {
+        "symfony/console": "^7.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.12"
+    }
+}

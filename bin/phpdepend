@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+require __DIR__.'/../vendor/autoload.php';
+
+use PHPDepend\App\Console\Application as PHPDepend;
+use Symfony\Component\Console\Input\ArgvInput;
+
+$application = new PHPDepend();
+$application->run(new ArgvInput($argv));
