@@ -17,10 +17,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace PHPDepend\App;
+namespace PHPDepend\App\Model;
 
 use Iterator;
-use PHPDepend\App\Call;
 
 final class CallList implements Iterator
 {

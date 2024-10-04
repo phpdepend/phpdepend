@@ -18,8 +18,8 @@
 
 namespace PHPDepend\App\Service;
 
-use PHPDepend\App\Call;
-use PHPDepend\App\CallList;
+use PHPDepend\App\Model\Call;
+use PHPDepend\App\Model\CallList;
 use SplFileInfo;
 use function file_get_contents;
 use function json_decode;

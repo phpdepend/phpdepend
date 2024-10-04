@@ -18,7 +18,7 @@
 
 namespace PHPDepend\App\Writer;
 
-use PHPDepend\App\CallList;
+use PHPDepend\App\Model\CallList;
 
 interface Writer
 {

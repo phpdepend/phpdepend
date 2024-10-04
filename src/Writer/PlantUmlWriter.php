@@ -18,9 +18,8 @@
 
 namespace PHPDepend\App\Writer;
 
-use PHPDepend\App\Call;
-use PHPDepend\App\CallList;
-use PHPDepend\App\Writer\Writer;
+use PHPDepend\App\Model\Call;
+use PHPDepend\App\Model\CallList;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function fwrite;

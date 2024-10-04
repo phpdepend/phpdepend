@@ -16,10 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace PHPDepend\App;
-
-use PHPDepend\App\ClassName;
-use PHPDepend\App\MethodName;
+namespace PHPDepend\App\Model;
 
 class Call
 {

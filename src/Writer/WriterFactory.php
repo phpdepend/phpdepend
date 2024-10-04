@@ -18,9 +18,7 @@
 
 namespace PHPDepend\App\Writer;
 
-use PHPDepend\App\Writer\PlantUmlWriter;
-use PHPDepend\App\Writer\Writer;
-use PHPDepend\App\Writers;
+use PHPDepend\App\Model\Writers;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
