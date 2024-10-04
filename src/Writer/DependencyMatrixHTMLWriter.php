@@ -39,7 +39,8 @@ class DependencyMatrixHTMLWriter implements Writer
 			foreach ($this->classes as $keyCol => $called) {
 				$table .= "<td class=\"heat " . ($keyRow == $keyCol?'diagonal ':'')
 				       . $this->getCSSClass(($this->matrix[$calling][$called]?? 0))
-				       . "\">" . ($this->matrix[$calling][$called]?? 0) . "</td>";
+				       . "\" title=\"" . $calling  . " " . $called . "\">"
+				       . ($this->matrix[$calling][$called]?? 0) . "</td>";
 			}
 			$table .= "</tr>";
 		}
