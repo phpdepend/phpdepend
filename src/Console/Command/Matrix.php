@@ -2,6 +2,7 @@
 
 namespace PHPDepend\App\Console\Command;
 
+use PHPDepend\App\Console\PHPDependStyle;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -35,7 +36,11 @@ class Matrix extends Command
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
-		$output->writeln('generating the matrix');
+		$io = new PHPDependStyle($output, $input);
+		$io->writeln('generating the matrix');
+		$matrix = $io->createMatrix();
+		$matrix->render();
+		$matrix->stop();
 		return Command::SUCCESS;
 	}
 }
