@@ -16,35 +16,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace PHPDepend\App;
 
 use function strrpos;
 
 class ClassName
 {
-    private function __construct(
-        private string $className
-    ) {}
+	private function __construct(
+		private string $className
+	)
+	{
+	}
 
-    public static function fromString(string $className): self
-    {
-        return new self($className);
-    }
+	public static function fromString(string $className): self
+	{
+		return new self($className);
+	}
 
-    public function getFullClassName(): string
-    {
-        return $this->className;
-    }
+	public function getFullClassName(): string
+	{
+		return $this->className;
+	}
 
-    public function getNamespaceSplit(): array
-    {
-        return explode('\\', $this->className);
-    }
+	public function getNamespaceSplit(): array
+	{
+		return explode('\\', $this->className);
+	}
 
-    public function getClassName(): string
-    {
-        $lastBackSlash = strrpos($this->className, '\\');
+	public function getClassName(): string
+	{
+		$lastBackSlash = strrpos($this->className, '\\');
 
-        return substr($this->className, $lastBackSlash + 1);
-    }
+		return substr($this->className, $lastBackSlash + 1);
+	}
 }

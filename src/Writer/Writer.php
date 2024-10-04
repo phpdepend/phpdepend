@@ -22,5 +22,5 @@ use PHPDepend\App\CallList;
 
 interface Writer
 {
-    public function write(CallList $list): void;
+	public function write(CallList $list): void;
 }

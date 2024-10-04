@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace PHPDepend\App\Service;
 
 use PHPDepend\App\Call;
@@ -25,15 +26,15 @@ use function json_decode;
 
 class JsonReader
 {
-    public function render(SplFileInfo $path): CallList
-    {
-        $content = json_decode(file_get_contents($path->getRealPath()), true);
+	public function render(SplFileInfo $path): CallList
+	{
+		$content = json_decode(file_get_contents($path->getRealPath()), true);
 
-        $callList = CallList::fromCalls();
-        foreach ($content['data'] as $jsonCall) {
-            $callList = $callList->with(Call::fromArray($jsonCall));
-        }
+		$callList = CallList::fromCalls();
+		foreach ($content['data'] as $jsonCall) {
+			$callList = $callList->with(Call::fromArray($jsonCall));
+		}
 
-        return $callList;
-    }
+		return $callList;
+	}
 }

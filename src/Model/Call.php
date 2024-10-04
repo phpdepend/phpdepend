@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace PHPDepend\App;
 
 use PHPDepend\App\ClassName;
@@ -22,48 +23,50 @@ use PHPDepend\App\MethodName;
 
 class Call
 {
-    private function __construct(
-        private ClassName $callingClass,
-        private MethodName $callingMethod,
-        private ClassName $calledClass,
-        private MethodName $calledMethod,
-    ) {}
+	private function __construct(
+		private ClassName  $callingClass,
+		private MethodName $callingMethod,
+		private ClassName  $calledClass,
+		private MethodName $calledMethod,
+	)
+	{
+	}
 
-    /**
-     * @param array{
-     *   callingClass: string,
-     *   callingMethod: string,
-     *   calledClass: string,
-     *   calledMethod: string
-     * } $content
-     */
-    public static function fromArray(array $content): self
-    {
-        return new self(
-            ClassName::fromString($content['callingClass']),
-            MethodName::fromString($content['callingMethod']),
-            ClassName::fromString($content['calledClass']),
-            MethodName::fromString($content['calledMethod']),
-        );
-    }
+	/**
+	 * @param array{
+	 *   callingClass: string,
+	 *   callingMethod: string,
+	 *   calledClass: string,
+	 *   calledMethod: string
+	 * } $content
+	 */
+	public static function fromArray(array $content): self
+	{
+		return new self(
+			ClassName::fromString($content['callingClass']),
+			MethodName::fromString($content['callingMethod']),
+			ClassName::fromString($content['calledClass']),
+			MethodName::fromString($content['calledMethod']),
+		);
+	}
 
-    public function getCallingClass(): ClassName
-    {
-        return $this->callingClass;
-    }
+	public function getCallingClass(): ClassName
+	{
+		return $this->callingClass;
+	}
 
-    public function getCalledClass(): ClassName
-    {
-        return $this->calledClass;
-    }
+	public function getCalledClass(): ClassName
+	{
+		return $this->calledClass;
+	}
 
-    public function getCallingMethod(): MethodName
-    {
-        return $this->callingMethod;
-    }
+	public function getCallingMethod(): MethodName
+	{
+		return $this->callingMethod;
+	}
 
-    public function getCalledMethod(): MethodName
-    {
-        return $this->calledMethod;
-    }
+	public function getCalledMethod(): MethodName
+	{
+		return $this->calledMethod;
+	}
 }

@@ -35,13 +35,13 @@ class PlantUmlWriter implements Writer
 	{
 	}
 
-	public function write(CallList $list) : void
+	public function write(CallList $list): void
 	{
 		$classes = [];
-		$calls = [];
+		$calls   = [];
 		/** @var Call $item */
 		foreach ($list as $item) {
-			$classes[implode('.', $item->getCalledClass()->getNamespaceSplit())][$item->getCalledMethod()->getName()] = true;
+			$classes[implode('.', $item->getCalledClass()->getNamespaceSplit())][$item->getCalledMethod()->getName()]   = true;
 			$classes[implode('.', $item->getCallingClass()->getNamespaceSplit())][$item->getCallingMethod()->getName()] = true;
 		}
 

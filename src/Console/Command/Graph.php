@@ -42,11 +42,11 @@ class Graph extends Command
 	{
 		$this->setName('graph')
 			->setDescription('Render a plantuml file from a CallMap-JSON File')
-			->addOption('output', 'o', InputOption::VALUE_REQUIRED, 'Where to write the output to', 'callmap.plantuml')
+			->addOption('target', 't', InputOption::VALUE_REQUIRED, 'Where to write the output to', 'callmap.plantuml')
 			->addArgument('path', InputArgument::REQUIRED, 'The path to the CallMap-JSON file');
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) : int
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$callList = $this->reader->render(new SplFileInfo($input->getArgument('path')));
 		$this->writerFactory->getWriter(Writers::PlantUML, $input, $output)->write($callList);

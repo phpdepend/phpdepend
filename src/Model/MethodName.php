@@ -15,21 +15,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace PHPDepend\App;
 
 class MethodName
 {
-    private function __construct(
-        private string $methodName
-    ) {}
+	private function __construct(
+		private string $methodName
+	)
+	{
+	}
 
-    public static function fromString(string $methodName): self
-    {
-        return new self($methodName);
-    }
+	public static function fromString(string $methodName): self
+	{
+		return new self($methodName);
+	}
 
-    public function getName(): string
-    {
-        return $this->methodName;
-    }
+	public function getName(): string
+	{
+		return $this->methodName;
+	}
 }

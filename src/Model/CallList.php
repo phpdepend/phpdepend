@@ -24,58 +24,58 @@ use PHPDepend\App\Call;
 
 final class CallList implements Iterator
 {
-    /** @var Call[] */
-    private array $calls;
+	/** @var Call[] */
+	private array $calls;
 
-    private function __construct(Call ...$calls)
-    {
-        $this->calls = $calls;
-    }
+	private function __construct(Call ...$calls)
+	{
+		$this->calls = $calls;
+	}
 
-    public static function fromCalls(Call ...$calls): self
-    {
-        return new self(...$calls);
-    }
+	public static function fromCalls(Call ...$calls): self
+	{
+		return new self(...$calls);
+	}
 
-    public function with(Call $call): self
-    {
-        return new self(...array_merge($this->calls, [$call]));
-    }
+	public function with(Call $call): self
+	{
+		return new self(...array_merge($this->calls, [$call]));
+	}
 
-    /**
-     * @param callable $sorter
-     * @return self
-     */
-    public function sorted(callable $sorter): self
-    {
-        $calls = $this->calls;
-        usort($calls, $sorter);
+	/**
+	 * @param callable $sorter
+	 * @return self
+	 */
+	public function sorted(callable $sorter): self
+	{
+		$calls = $this->calls;
+		usort($calls, $sorter);
 
-        return new self(...$calls);
-    }
+		return new self(...$calls);
+	}
 
-    public function current() : Call
-    {
-        return current($this->calls);
-    }
+	public function current(): Call
+	{
+		return current($this->calls);
+	}
 
-    public function next() : void
-    {
-        next($this->calls);
-    }
+	public function next(): void
+	{
+		next($this->calls);
+	}
 
-    public function key() : int|null
-    {
-        return key($this->calls);
-    }
+	public function key(): int|null
+	{
+		return key($this->calls);
+	}
 
-    public function valid() : bool
-    {
-        return null !== $this->key();
-    }
+	public function valid(): bool
+	{
+		return null !== $this->key();
+	}
 
-    public function rewind() : void
-    {
-        reset($this->calls);
-    }
+	public function rewind(): void
+	{
+		reset($this->calls);
+	}
 }

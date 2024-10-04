@@ -20,5 +20,5 @@ namespace PHPDepend\App;
 
 enum Writers: string
 {
-    case PlantUML = 'plantUml';
+	case PlantUML = 'plantUml';
 }

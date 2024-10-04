@@ -26,8 +26,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class WriterFactory
 {
-    public function getWriter(Writers $writer, InputInterface $input, OutputInterface $output): Writer
-    {
-        return new PlantUmlWriter($input, $output);
-    }
+	public function getWriter(Writers $writer, InputInterface $input, OutputInterface $output): Writer
+	{
+		return new PlantUmlWriter($input, $output);
+	}
 }
