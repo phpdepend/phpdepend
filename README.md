@@ -1,13 +1,15 @@
-# phpstan-dependency-matrix
+# PHPDepend
 PHPStan plugin to create a dependency matrix inspired by N-Depend
 
+## matrix - subcommand
+
+Create a dependency matrix html file based on the call
 
 
 ## graph - subcommand
 
-A tool to creat ean overview of your applications method-calls.
-
-This tool generates a PlantUML file from a CallMap-JSON file.
+Create an overview of your applications method-calls.
+Graph generates a PlantUML file from a CallMap-JSON file.
 
 ### Usage
 
