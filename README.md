@@ -25,9 +25,9 @@ This will generate a PlantUML file in the current directory names `callmap.plant
 You can use this file to generate a PNG os SVG using a PlantUML renderer like at
 http://www.plantuml.com/plantuml/uml/
 
-For the `stella-maris/callmap` plugin that should generate something like this:
+For the [`phpdepend/callmap`](https://github.com/phpdepend/callmap) plugin that should generate something like this:
 
-![Example output](img.png)
+![Example output](callmap.png)
 
 
 ## Full chain:
@@ -46,7 +46,3 @@ composer require sebastianfeldman/phpdepend@dev-main
 # Render a PNG file from the callmap.plantuml file
 docker run -v "$(pwd):/app" -w "/app" ghcr.io/plantuml/plantuml callmap.plantuml
 ```
-
-When done in this folder it should create a PNG file like this:
-
-![Callmap image of callmap-cli](callmap.png)
