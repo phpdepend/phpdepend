@@ -47,6 +47,10 @@
 		"ext-json": "*",
 		"symfony/console": "^5.0|^6.0|^7.0"
 	},
+	"config": {
+		"sort-packages": true,
+		"platform": {"php": "8.2.0"}
+	},
 	"scripts": {
 		"post-install-cmd": "tools/phive install --force-accept-unsigned",
 		"tools": "tools/phive install --force-accept-unsigned",

@@ -1,0 +1,24 @@
+{
+  "alias": "phpdepend",
+  "banner": [
+    "This file is part of PHPDepend",
+    "",
+    "(c) Andreas Heigl <andreas@heigl.org> & Sebastian Feldmann <sf@sebastian-feldmann.info>",
+    "",
+    "For the full copyright and license information, please view the LICENSE",
+    "file that was distributed with this source code."
+  ],
+  "files":[
+    "LICENSE",
+		"templates/dependency-matrix.html"
+  ],
+  "base-path": null,
+  "output": "build/phar/phpdepend.phar",
+  "compactors": [
+    "KevinGH\\Box\\Compactor\\PhpScoper"
+  ],
+  "replacements": {
+    "runtime": "PHAR"
+  },
+  "php-scoper": "build/scoper.inc.php"
+}
