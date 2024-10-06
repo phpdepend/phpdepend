@@ -128,4 +128,4 @@ jobs:
           asset_content_type: text/plain
           asset_name: phpdepend.phar.asc
           asset_path: "${{ env.PHAR_SIGNATURE }}"
-          upload_url: "${{ steps.create-release.outputs.upload_url }}"g
+          upload_url: "${{ steps.create-release.outputs.upload_url }}"
