@@ -1,0 +1,74 @@
+name: "Continuous Integration"
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build phpdepend on ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      matrix:
+        include:
+          - php: 8.0
+            buildphar: false
+            experimental: false
+          - php: 8.1
+            buildphar: false
+            experimental: false
+          - php: 8.2
+            buildphar: true
+            experimental: false
+          - php: 8.3
+            buildphar: false
+            experimental: false
+    env:
+      PHAR: build/phar/phpdepend.phar
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        tools: composer:v2, phive
+        extensions: mbstring
+
+    - name: PHP Version
+      run: php -v
+
+    - name: Update composer
+      run: composer self-update
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Update phive
+      run: phive self-update
+
+    - name: Install tooling
+      run: GITHUB_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} phive --no-progress --home ./.phive install --force-accept-unsigned --trust-gpg-keys 4AA394086372C20A,31C7E470E2138192,8E730BA25823D8B5,CF1A108D0E7AE720,2DF45277AEF09A2F,51C67305FFC2E5C0,A978220305CD5C32
+
+    - name: Force install PHAR Symfony version
+      if: ${{ matrix.buildphar }}
+      run: COMPOSER=composer.phar.json composer update
+
+    - name: Validate configuration for humbug/box
+      if: ${{ matrix.buildphar }}
+      run: tools/box validate box.json
+
+    - name: Compile phar with humbug/box
+      if: ${{ matrix.buildphar }}
+      run: tools/box compile
+
+    - name: Show info about generated phar with humbug/box
+      if: ${{ matrix.buildphar }}
+      run: tools/box info ${{ env.PHAR }}
+
+    - name: Run phar
+      if: ${{ matrix.buildphar }}
+      run: ${{ env.PHAR }} --help
