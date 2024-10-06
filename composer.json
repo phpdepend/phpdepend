@@ -2,9 +2,7 @@
 	"name": "phpdepend/phpdepend",
 	"type": "library",
 	"description": "PHP static analysis tool",
-	"keywords": [
-		"static analysis"
-	],
+	"keywords": ["dependecy", "graph", "matrix"],
 	"homepage": "https://phpdepend.org/",
 	"license": "MIT",
 	"authors": [
@@ -41,7 +39,16 @@
 			"PHPDepend\\App\\Integration\\": "tests/integration/"
 		}
 	},
+	"bin": [
+		"bin/phpdepend"
+	],
 	"require": {
-		"symfony/console": "^7.1"
+		"php": ">=8.0",
+		"ext-json": "*",
+		"symfony/console": "^5.0|^6.0|^7.0"
+	},
+	"scripts": {
+		"post-install-cmd": "tools/phive install --force-accept-unsigned",
+		"tools": "tools/phive install --force-accept-unsigned"
 	}
 }
