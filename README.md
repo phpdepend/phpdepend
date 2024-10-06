@@ -15,7 +15,7 @@ Create a dependency matrix to see what part of your application is depending on 
 
 ```bash
 # Install PHPStan
-composer require --dev phpstan/phpstan 1.11.x-dev
+composer require --dev phpstan/phpstan
 # Install plugin
 composer require --dev phpdepend/callmap dev-main
 # parse the sources and generate the callmap.json file
