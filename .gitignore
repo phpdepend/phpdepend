@@ -1,4 +1,5 @@
-/vendor/
-/tools/
-/composer.lock
+/build/phar/
 /callmap.json
+/composer.lock
+/tools/
+/vendor/
