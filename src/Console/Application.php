@@ -2,18 +2,16 @@
 
 namespace PHPDepend\App\Console;
 
+use PHPDepend\App\Info;
 use PHPDepend\App\Service\JsonReader;
 use PHPDepend\App\Writer\WriterFactory;
 use Symfony\Component\Console\Application as SymfonyApplication;
 
 class Application extends SymfonyApplication
 {
-	const RELEASE_DATE = '2024-10-01';
-	const VERSION = '0.9.0';
-
 	public function __construct()
 	{
-		parent::__construct('PHPDepend', self::VERSION);
+		parent::__construct('PHPDepend', Info::VERSION);
 
 		$this->setDefaultCommand('list');
 		$this->silenceXDebug();
@@ -43,7 +41,7 @@ class Application extends SymfonyApplication
 			'<info>%s</info> version <comment>%s</comment> %s <fg=blue>#StandWith</><fg=yellow>Ukraine</>',
 			$this->getName(),
 			$this->getVersion(),
-			self::RELEASE_DATE
+			Info::RELEASE_DATE
 		);
 	}
 
