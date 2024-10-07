@@ -30,15 +30,22 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          coverage: none
-          extensions: mbstring
           php-version: 8.2
+          coverage: none
+          tools: composer:v2, phive
+          extensions: mbstring
+
+      - name: Update composer
+        run: composer self-update
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-dev --no-interaction --no-progress
 
+      - name: Update phive
+        run: phive self-update
+
       - name: Install tooling
-        run: "GITHUB_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} tools/phive --no-progress --home ./.phive install --force-accept-unsigned --trust-gpg-keys 51C67305FFC2E5C0,4AA394086372C20A,31C7E470E2138192,8E730BA25823D8B5,CF1A108D0E7AE720,2DF45277AEF09A2F"
+        run: "GITHUB_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} phive --no-progress --home ./.phive install --force-accept-unsigned --trust-gpg-keys 51C67305FFC2E5C0,4AA394086372C20A,31C7E470E2138192,8E730BA25823D8B5,CF1A108D0E7AE720,2DF45277AEF09A2F"
 
       - name: Validate configuration for humbug/box
         run: tools/box validate box.json
